@@ -1,1 +1,0 @@
-web: gunicorn input:app
