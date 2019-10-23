@@ -1,0 +1,53 @@
+{%extends "index.html"%}
+
+{% block content_text %}
+	<div class="container-fluid pb-4" style="max-width: 98vw;">
+		<table class="table table-bordered table-hover w-auto" style="table-layout:fixed;word-wrap:break-word;margin: 0 auto !important;">
+			<tbody>
+				<tr class="table-success text-center text-secondary align-middle">
+					<th>wikipedia page</th>
+					<th>wikidata page</th>
+					<th>coordinates</th>
+					<th>language</th>
+					<th>title</th>
+					<th>language coordinates</th>
+					<th>QuickStatement</th>
+				</tr>
+				
+				{%for i in range(length)%}
+					{%for k in range(item[title_list[i]]['wiki_site']|length)%}
+						<tr>
+						{%if k==0 %}
+							<td class="align-middle text-center" rowspan="{{item[title_list[i]]['wiki_site']|length}}">
+								<a href="{{item[title_list[i]]['title_url']}}">{{item[title_list[i]]['title']}}</a>
+							</td>
+							
+							<td class="align-middle text-center" rowspan="{{item[title_list[i]]['wiki_site']|length}}">
+								<a href="{{item[title_list[i]]['wikidata_url']}}">{{item[title_list[i]]['wikidata_id']}}</a>
+							</td>
+
+							<td class="align-middle text-center" rowspan="{{item[title_list[i]]['wiki_site']|length}}">
+								{%for j in range(item[title_list[i]]['latitude']|length)%}
+										{{item[title_list[i]]['latitude'][j]}}</br>
+										{{item[title_list[i]]['longitude'][j]}}</br>
+								{%endfor%}
+							</td>
+						{%endif%}
+
+							<td class="align-middle text-center">{{item[title_list[i]]['wiki_site'][k]}}</td>
+							<td class="align-middle text-center">
+								<a href="{{item[title_list[i]]['wiki_url'][k]}}">{{item[title_list[i]]['wiki_title'][k]}}</a>
+							</td>
+							<td class="align-middle text-center">
+								{{item[title_list[i]]['geo_cor'][item[title_list[i]]['wiki_site'][k]]}}
+							</td>
+							<td class="align-middle text-center">
+								{{item[title_list[i]]['wiki_quick'][item[title_list[i]]['wiki_site'][k]]}}
+							</td>
+						</tr>
+					{%endfor%}
+				{%endfor%}
+			</tbody>
+		</table>
+	</div> 
+{% endblock %}
