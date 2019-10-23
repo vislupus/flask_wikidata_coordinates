@@ -1,2 +1,2 @@
 # Wikidata coordinates
-Web scraper for coordinates in Wikipedia categories 
+Web scraper which can get coordinates from Wikipedia categories page and from there go to all linked pages and get coordinates from all of them.
