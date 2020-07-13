@@ -1,4 +1,4 @@
-# Wikidata coordinates
+# Wikipedia scraper for coordinates
 
 [![MIT license](https://img.shields.io/badge/license-MIT-brightgreen)](https://lbesson.mit-license.org/)
 ![Python](https://img.shields.io/badge/language-Python-brightgreen)
